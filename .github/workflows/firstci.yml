@@ -37,7 +37,7 @@ jobs:
       if: success()
       uses: docker/setup-buildx-action@v3   
          
-    - name: Build and push Docker image
+    - name: Build and push Test Docker image
       if: success()
       uses: docker/build-push-action@v5
       with:
@@ -45,5 +45,14 @@ jobs:
         file: ./Dockerfiles/test.Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/intro-to-devops-a2:test-latest
-        #tags: jkatehos/intro-to-devops:latest //ned to fix user secrets/ exclude files from build.
-        no-cache: true 
+        no-cache: true
+
+    - name: Build and push User Docker image
+      if: success()
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfiles/user.Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/intro-to-devops-a2:user-latest
+        no-cache: true
