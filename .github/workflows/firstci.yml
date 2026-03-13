@@ -40,7 +40,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: ./Dockerfile/test.Dockerfile
+        file: ./Dockerfiles/test.Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/intro-to-devops-a2:test-latest
         #tags: jkatehos/intro-to-devops:latest //ned to fix user secrets/ exclude files from build.
