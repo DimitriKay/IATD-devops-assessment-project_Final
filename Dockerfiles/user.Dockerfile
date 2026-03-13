@@ -2,7 +2,7 @@ FROM node:20.12-alpine
 
 COPY package-lock.json ./
 
-RUN spm install
+RUN npm install
 
 COPY ./ ./
 
