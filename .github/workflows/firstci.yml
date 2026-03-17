@@ -17,7 +17,7 @@ jobs:
         node-version: 24.13.0
         cache: npm
     - name: Initialise npm
-      run: npm ci --verbose
+      run: npm install
     - name: Perform Static Analysis with ESLint
       run: npx eslint -o eslint_report.json -f json
     - name: Create ESLint Annotations
